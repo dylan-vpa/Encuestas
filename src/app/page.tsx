@@ -111,9 +111,9 @@ export default function Home() {
       </div>
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <Image src="/logo1.png" alt="Logo 1" width={50} height={50} />
-          <Image src="/logo2.png" alt="Logo 2" width={50} height={50} />
-          <p>Texto en el centro del footer</p>
+          <Image src="/logo abello.jpeg" alt="Logo 1" width={50} height={50} />
+          <Image src="/logo ub.jpeg" alt="Logo 2" width={50} height={50} />
+          <p>Lady Vidal, Ana Casas, Belen, Santiago Galindo, John Ortiz</p>
         </div>
       </footer>
     </main>
