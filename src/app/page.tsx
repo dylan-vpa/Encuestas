@@ -24,13 +24,20 @@ export default function Home() {
   }, []);
 
   const handleRatingSubmit = async () => {
-    if (currentQuestionIndex === 0 && (!name || !email || !gender)) {
-      alert("Por favor, completa todos los campos obligatorios.");
-      return;
-    }
-    if (rating === 0) {
-      alert("Por favor, selecciona una calificación.");
-      return;
+    if (!userInfoSaved) {
+      // Validar que todos los campos de usuario estén completos
+      if (!name || !email || !gender) {
+        alert("Por favor, completa todos los campos obligatorios.");
+        return;
+      }
+      // Guardar la información del usuario
+      setUserInfoSaved(true);
+    } else {
+      // Validar que se haya seleccionado una calificación
+      if (rating === 0) {
+        alert("Por favor, selecciona una calificación.");
+        return;
+      }
     }
 
     const supabase = createClient();
@@ -45,10 +52,6 @@ export default function Home() {
     ]);
     setRating(0);
     setCurrentQuestionIndex(currentQuestionIndex + 1);
-    
-    if (!userInfoSaved) {
-      setUserInfoSaved(true); // Marcar que la información del usuario ha sido guardada
-    }
   };
 
   return (
@@ -108,9 +111,9 @@ export default function Home() {
       </div>
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <Image src="/logo ub.jpeg" alt="Logo 2" width={50} height={50} />
-          <p>Lady vidal, Ana Casas, Santiago Galindo</p>
-          <Image src="/logo abello.jpeg" alt="Logo 1" width={50} height={50} />
+          <Image src="/logo1.png" alt="Logo 1" width={50} height={50} />
+          <Image src="/logo2.png" alt="Logo 2" width={50} height={50} />
+          <p>Texto en el centro del footer</p>
         </div>
       </footer>
     </main>
